@@ -5,7 +5,15 @@
 컴퓨터 과학의 기초가 되는 4대 순회(전위, 중위, 후위, 레벨) 방식을 보여줍니다.
 """
 
+import sys
+from pathlib import Path
 from typing import Any, List, Optional
+
+# 단독 실행 시에도 상위 프로젝트 루트 경로(miniredis)를 인식하도록 보정
+_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
+
 from datastructures.doubly_linked_list import DoublyLinkedList
 
 
@@ -116,3 +124,15 @@ class BinaryTree:
                 queue.insert_back(curr.right)
 
         return result
+
+
+if __name__ == "__main__":
+    print("🌲 BinaryTree (이진 트리) 순회 알고리즘 동작 테스트:")
+    tree = BinaryTree()
+    for v in [1, 2, 3, 4, 5, 6, 7]:
+        tree.insert_level_order(v)
+    print(f"  • 전위 순회 (Preorder)   : {tree.preorder()}")
+    print(f"  • 중위 순회 (Inorder)    : {tree.inorder()}")
+    print(f"  • 후위 순회 (Postorder)  : {tree.postorder()}")
+    print(f"  • 레벨 순회 (Level-order): {tree.level_order()}")
+    print("✅ BinaryTree 정상 작동 확인 완료!")
