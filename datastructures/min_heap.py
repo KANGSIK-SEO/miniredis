@@ -9,6 +9,12 @@ Mini Redis의 TTL(Time-To-Live, 만료 시각) 처리를 담당하는 핵심 우
 - 따라서 가장 빠른 만료 시각을 O(1)에 바로 확인(peek)할 수 있습니다.
 - 루트의 만료 시각이 아직 현재 시각보다 미래라면, 그 아래에 있는 수천 개의 키는 검사할 필요도 없이 안전합니다!
 """
+import sys
+from pathlib import Path
+
+_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
 
 from typing import Any, List, Optional
 

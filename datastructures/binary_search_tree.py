@@ -7,6 +7,12 @@
   별도의 정렬 알고리즘 없이도 **모든 키가 오름차순으로 자동 정렬**되어 나옵니다!
 - Redis의 Sorted Set(ZSET)이나 범위 쿼리(ZRANGE)의 기본 이론적 배경이 됩니다.
 """
+import sys
+from pathlib import Path
+
+_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
 
 from typing import Any, List, Optional, Tuple
 

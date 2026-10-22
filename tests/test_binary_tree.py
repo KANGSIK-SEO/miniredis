@@ -1,4 +1,10 @@
 """이진 트리 및 순회 알고리즘 단위 테스트."""
+import sys
+from pathlib import Path
+
+_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
 
 import unittest
 from datastructures.binary_tree import BinaryTree, TreeNode

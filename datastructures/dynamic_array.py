@@ -4,6 +4,12 @@
 그 '동적 리사이징(Dynamic Resizing)'과 '분할 상환 시간복잡도(Amortized O(1))'의 원리를
 명확하게 보여주는 학습용 자료구조입니다.
 """
+import sys
+from pathlib import Path
+
+_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
 
 from typing import Any, Generator, Optional
 

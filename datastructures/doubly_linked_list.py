@@ -9,6 +9,12 @@ Mini Redis의 핵심 뼈대가 되는 자료구조입니다.
 - 헤드(Head)와 테일(Tail)에 '더미 센티넬(Sentinel) 노드'를 두어 노드가 0개이거나 1개일 때의
   귀찮은 if 분기 처리를 완전히 제거하고 모든 연산을 깔끔한 O(1)로 유지합니다.
 """
+import sys
+from pathlib import Path
+
+_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
 
 from typing import Any, Generator, Optional
 
